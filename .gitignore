@@ -1,3 +1,5 @@
 SentimentAnalysis/bin/
 SentimentAnalysis/obj/
 *.user
+*.dtbcache
+.vs/SentimentAnalysis/v16/.suo

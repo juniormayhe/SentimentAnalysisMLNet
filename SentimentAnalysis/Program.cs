@@ -146,6 +146,10 @@ namespace SentimentAnalysis
                 },
                 new SentimentData
                 {
+                    SentimentText = "I hate you"
+                },
+                new SentimentData
+                {
                     SentimentText = "This is a very rude movie"
                 },
                 new SentimentData
