@@ -38,3 +38,21 @@ Sentiment: This is an awesome | Prediction: Toxic | Probability: 0.6573405
 Sentiment: This is an awesome movie | Prediction: Toxic | Probability: 0.7090305
 ```
 Adding too many different sentences in data might cause some toxic sentiments to be evaluated as not toxic and vice versa. Not sure what causes this behavior yet.
+
+If data.tsv has a simple sentence, results might be weird since ML.NET is not aware of the context of words. It does not have any idea that awesome is a positive sentiment:
+```
+|         | data.tsv                       | test.tsv            |
+|---------| ------------------------------ | ------------------- |
+|Sentence | `0	This is awesome`           |                     |
+```
+
+Wierd results since word context is unknown:
+```
+Accuracy: 95.24%
+Auc: 99.09%
+F1Score: 95.24%
+
+Sentiment: This is an awesome movie and you should see it. | Prediction: Toxic | Probability: 0.8191079
+Sentiment: This is an awesome | Prediction: Not Toxic | Probability: 0.1673261
+Sentiment: This is an awesome movie | Prediction: Not Toxic | Probability: 0.3755476
+```
